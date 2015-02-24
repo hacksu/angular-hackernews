@@ -4,41 +4,7 @@ angular
 
     var UserFactory = function () {
 
-      var self = this;
 
-      self.save = function (user) {
-        localStorage.setItem('user', angular.toJson(user));
-      };
-
-      self.get = function () {
-        return angular.fromJson(localStorage.getItem('user'));
-      };
-
-      self.remove = function () {
-        localStorage.removeItem('user');
-      };
-
-      self.register = function (user, callback) {
-        var req = {
-          method: 'POST',
-          url: 'http://104.236.35.212/users/register',
-          data: $.param({
-            username: user.username,
-            password: user.password
-          }),
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        };
-        $http(req)
-          .success(function (data) {
-            self.save(user);
-            callback();
-          })
-          .error(function (data) {
-            console.log(data);
-          });
-      };
 
       self.authorize = function (req) {
         var encoded = base64Encode(self.get().username+':'+self.get().password);

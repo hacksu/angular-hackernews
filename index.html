@@ -23,63 +23,13 @@
 
   <div ng-controller="UserCtrl as user">
 
-    <!-- User is logged in -->
-    <div ng-if="user.me">
-      <p>Welcome, {{user.me.username}}. <a href="" ng-click="user.logout()">Logout</a></p>
-    </div>
 
-    <!-- User is not logged in -->
-    <div ng-if="!user.me">
-      <form ng-submit="user.login()">
-        <h3>Login</h3>
-        <label>
-          Username
-          <input type="text" placeholder="Username" ng-model="user.username">
-        </label>
-        <label>
-          Password
-          <input type="password" placeholder="Password" ng-model="user.password">
-        </label>
-        <button>Login</button>
-      </form>
-      <h3>Register</h3>
-      <form ng-submit="user.register()">
-        <label>
-          Username
-          <input type="text" placeholder="Username" ng-model="user.username">
-        </label>
-        <label>
-          Password
-          <input type="password" placeholder="Password" ng-model="user.password">
-        </label>
-        <button>Register</button>
-      </form>
-      <br>
-    </div>
 
   </div>
 
   <div ng-controller="LinkCtrl as ctrl">
 
-    <div ng-repeat="link in ctrl.links | orderBy:'score':true">
 
-      <a href="{{link.url}}">{{link.title}}</a> <br>
-      <strong>Votes:</strong> {{link.points}} <br>
-      <a href="" ng-click="ctrl.vote(link)">Upvote</a> <br><br>
-
-    </div>
-
-    <form ng-submit="ctrl.create()">
-      <label>
-        Title
-        <input type="text" placeholder="Title" ng-model="ctrl.new.title">
-      </label><br>
-      <label>
-        URL
-        <input type="text" placeholder="URL" ng-model="ctrl.new.url">
-      </label>
-      <button>Submit</button>
-    </form>
 
   </div>
 
