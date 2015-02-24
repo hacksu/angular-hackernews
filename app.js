@@ -1,1 +1,1 @@
-angular.module('khe');
+angular.module('khe', []);
